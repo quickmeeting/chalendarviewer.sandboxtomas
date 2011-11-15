@@ -28,7 +28,7 @@ import android.widget.TextView;
  * Display Foursquare authentication dialog.
  * 
  * @author Lorensius W. L. T <lorenz@londatiga.net>
- *
+ * http://www.londatiga.net/featured-articles/how-to-use-foursquare-api-on-android-application/
  */
 public class CalendarAuthenticateDialog extends Dialog {
 	static final float[] DIMENSIONS_LANDSCAPE = {460, 260};
@@ -81,7 +81,7 @@ public class CalendarAuthenticateDialog extends Dialog {
     	
     	CookieManager cookieManager = CookieManager.getInstance();
     	
-    	//cookieManager.removeAllCookie();
+    	//cookieManager.removeAllCookie(); 
     }
 	
 	 private void setUpTitle() {

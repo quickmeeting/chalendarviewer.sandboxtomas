@@ -13,6 +13,9 @@
 
     You should have received a copy of the GNU General Public License
     along with ChalendarViewer.  If not, see <http://www.gnu.org/licenses/>.    
+    
+    
+    based on code http://www.londatiga.net/featured-articles/how-to-use-foursquare-api-on-android-application/
 */
 
 package org.ch.calendar.service;

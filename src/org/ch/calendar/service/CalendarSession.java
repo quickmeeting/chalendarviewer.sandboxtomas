@@ -34,7 +34,7 @@ import javax.net.ssl.HttpsURLConnection;
  * and user name.
  * 
  * @author Lorensius W. L T <lorenz@londatiga.net>
- *
+ * http://www.londatiga.net/featured-articles/how-to-use-foursquare-api-on-android-application/
  */
 public class CalendarSession {
 	private SharedPreferences sharedPref;

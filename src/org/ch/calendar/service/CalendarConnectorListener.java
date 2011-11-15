@@ -15,6 +15,10 @@
     along with ChalendarViewer.  If not, see <http://www.gnu.org/licenses/>.    
 */
 
+
+/**
+ * based on http://www.londatiga.net/featured-articles/how-to-use-foursquare-api-on-android-application/
+ */
 package org.ch.calendar.service;
 
 public interface CalendarConnectorListener {

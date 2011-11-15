@@ -29,7 +29,7 @@ import javax.net.ssl.HttpsURLConnection;
 /**
  * 
  * @author Lorensius W. L. T <lorenz@londatiga.net>
- *
+ * http://www.londatiga.net/featured-articles/how-to-use-foursquare-api-on-android-application/
  */
 public class CalendarConnector {
 
@@ -38,7 +38,7 @@ public class CalendarConnector {
     
     private static final String OAUTH_BEGIN         = "https://accounts.google.com/o/oauth2/auth";
     private static final String OAUTH_REDIRECT_URI  = "urn:ietf:wg:oauth:2.0:oob";
-    private static final String OAUTH_SCOPE         = "https://www.google.com/calendar/feeds/";
+    private static final String OAUTH_SCOPE         = "https://www.google.com/calendar/feeds/+https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile";
     private static final String OAUTH_RESPONSE_TYPE = "code";
     
     private static final String TAG = "CalendarConnector";
@@ -66,11 +66,13 @@ public class CalendarConnector {
         // binds dialog result
         CalendarAuthenticateDialogListener listener = new CalendarAuthenticateDialogListener() {
             
+            @Override
             public void onError(String error) {
                 if (mListener != null)
                    mListener.onFail("Authorization failed");                
             }
             
+            @Override
             public void onComplete(String authorizationCode) {
                 mCalendarSession.storeAuthorizationCode(authorizationCode);
                 try {
@@ -127,8 +129,10 @@ public class CalendarConnector {
         HttpsURLConnection.setDefaultHostnameVerifier(hostnameVerifier);
 
        // Example send http request
-       final String url = "https://www.google.com/calendar/feeds/default/allcalendars/full?alt=jsonc";
-
+       //String url = "https://www.google.com/calendar/feeds/default/allcalendars/full?alt=jsonc";
+       //String url = "https://www.google.com/calendar/feeds/default/private/full?start-min=2011-11-16T00:00:00&start-max=2011-11-16T12:00:59&alt=jsonc";
+       String url = "https://www.google.com/calendar/feeds/optaresolutions.com_2d3933313331343032383836%40resource.calendar.google.com/private/full?start-min=2011-11-16T00:00:00&start-max=2011-11-16T12:00:59&alt=jsonc";
+       
        HttpGet httpPost = new HttpGet(url);
        
        httpPost.setHeader("Authorization","Bearer " + mCalendarSession.getAccessToken());
@@ -142,6 +146,7 @@ public class CalendarConnector {
         String response1 = streamToString(entity.getContent()); 
 	    
         Log.d(TAG, "HTML response = " + response1);
+        
 	}
 	
 	static public String streamToString(InputStream is) throws IOException {

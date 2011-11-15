@@ -16,6 +16,11 @@ import org.json.JSONException;
 import java.io.IOException;
 import java.util.ArrayList;
 
+
+/**
+ * based on http://www.londatiga.net/featured-articles/how-to-use-foursquare-api-on-android-application/
+ *
+ */
 public class Home extends Activity {
     
     CalendarConnector cc;
@@ -31,6 +36,7 @@ public class Home extends Activity {
         
         Button connectBtn            = (Button) findViewById(R.id.button1);
         connectBtn.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 cc.authorize();
             }
@@ -38,6 +44,7 @@ public class Home extends Activity {
         
         connectBtn = (Button) findViewById(R.id.button2);
           connectBtn.setOnClickListener(new OnClickListener() {
+              @Override
               public void onClick(View v) {
                   try {
                     cc.getEvents();
